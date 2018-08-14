@@ -1,3 +1,5 @@
+# Reputation Tracking System
+
 ## Overview 
 
 There is a distinct need for a reputation tracking system, hereby RTS, that can be run on the EOS blockchain that simplifies the user experience and allows for a token based rating and reviewing system to incentive users to the platform. While Scatter and other open source rating system exist, these have a steep learning curve that makes the platform inaccessible to some users. These systems generally have the weakness of a single centralized authority. 
