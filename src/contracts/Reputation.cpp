@@ -1,7 +1,7 @@
-#include "Users.hpp"
+#include "Reputation"
 
 namespace rts {
-    void Users::add(const account_name account, string &username) {
+    void Reputation::add(const account_name account, string &username) {
         require_auth(account);
         userIndex users(_self, _self);
 
