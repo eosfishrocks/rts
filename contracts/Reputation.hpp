@@ -60,8 +60,7 @@ namespace rts {
             string result; // Result
             vector <string> proof; // Serialized string of {[account:storageIds]} for storage network
             uint64_t primary_key() const { return election_id; }
-            EOSLIB_SERIALIZE(relection, (election_id)(votes)(name)(network)(aliases)(date)(submitter)
-            (result)(proof));
+            EOSLIB_SERIALIZE(relection, (election_id)(votes)(name)(network)(aliases)(date)(submitter)(result)(proof));
         };
         typedef multi_index<N(relection), relection> repIndex;
 
@@ -89,7 +88,7 @@ namespace rts {
             vector <uint64_t> latest_consesus; // Vector to be used for the last twenty consensus scores
             uint64_t primary_key() const { return account_name; }
 
-            EOSLIB_SERIALIZE(user, (account_name)(username));
+            EOSLIB_SERIALIZE(user, (account_name)(username)(reputations)(role)(aliases)(consensus)(latest_consensus));
         };
         typedef multi_index<N(user), user> userIndex;
 
