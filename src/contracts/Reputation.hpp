@@ -53,13 +53,12 @@ namespace rts {
         struct relection {
             uint64_t election_id;
             vector <vote> votes; // Vector containing votes for election
-            string name; //
-            string network;
-            vector <alias> aliases;
-            uint64_t date;
-            uint64_t submitter;
-            string result;
-            vector <string> proof;
+            string name; // Name on RTS net
+            vector <alias> aliases; // List of aliases
+            uint64_t date; // date of report submission
+            uint64_t submitter; // account of submitter
+            string result; // Result
+            vector <string> proof; // Serialized string of {[account:storageIds]} for storage network
             uint64_t primary_key() const { return election_id; }
             EOSLIB_SERIALIZE(relection, (election_id)(votes)(name)(network)(aliases)(date)(submitter)
             (result)(proof));
