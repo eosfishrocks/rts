@@ -8,4 +8,4 @@ cmake-build-release
 **/*.abi
 **/*.wast
 **/*.wasm
-!src/contracts/Token.abi
+!contracts/Token.abi

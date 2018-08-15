@@ -3,12 +3,11 @@ EOSIOCPP = eosiocpp
 build : users token
 
 token :
-	$(EOSIOCPP) -o ./src/contracts/Token.wast ./src/contracts/Token.cpp
+	$(EOSIOCPP) -o ./contracts/Token.wast ./contracts/Token.cpp
 
-
-users :
-	$(EOSIOCPP) -o ./src/contracts/Users.wast ./src/contracts/Users.cpp && \
-		$(EOSIOCPP) -g ./src/contracts/Users.abi ./src/contracts/Users.cpp
+reputation :
+	$(EOSIOCPP) -o ./contracts/Reputation.wast ./contracts/Reputation.cpp && \
+		$(EOSIOCPP) -g ./contracts/Reputation.abi ./contracts/Reputation.cpp
 		
 clean :
 	-find . -type f \( -name '*.wasm' -o -name '*.wast' -o -name '*.abi' -a ! -name Token.abi \) -exec rm {} +
