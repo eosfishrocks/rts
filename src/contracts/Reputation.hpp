@@ -27,6 +27,7 @@ namespace rts {
         };
 
         // Table for aliases for submitted reports
+        // @abi table alias i64
         struct alias
         {
             string username; // External username
