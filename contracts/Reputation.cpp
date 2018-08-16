@@ -1,7 +1,7 @@
 #include "Reputation"
 
 namespace rts {
-    void Reputation::add(const account_name account, string &username) {
+    void Reputation::adduser(const account_name account, string &username, vector <alias> &aliases) {
         require_auth(account);
         userIndex users(_self, _self);
 
@@ -11,8 +11,7 @@ namespace rts {
         users.emplace(account, [&](auto &user) {
             user.account_name = account;
             user.username = username;
-
         });
-
     }
+
 }
