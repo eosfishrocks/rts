@@ -1,0 +1,94 @@
+@import "sass/vars"
+@import "sass/css-reset"
+@import '~@angular/material/theming'
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"
+
+html, body
+  height: 100%
+  width: 100%
+  font: 400 16px/1.2em $main-font
+  color: $text-color
+  -webkit-font-smoothing: antialiased
+body
+  overflow-x: hidden
+
+//.mat-dialog-container
+//  padding: 0!important
+//  border-radius: 0!important
+//  box-shadow: none!important
+//  background-color: transparent!important
+//  .mat-dialog-content
+//    margin: 0
+//    padding: 0
+//    max-height: 90vh
+//.cdk-overlay-dark-backdrop
+////background: rgba($main-color,.96)!important
+//.cdk-global-scrollblock
+//  overflow-y: hidden
+//.mat-simple-snackbar
+//  justify-content: center!important
+//.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background
+//  background-color: $accent-color!important
+.material-icons
+  font-family: 'Material Icons'
+
+.visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  clip-path: inset(50%)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+  white-space: nowrap
+
+.wrapper
+  width: 100%
+  max-width: 1240px
+  padding: 0 40px
+  margin: 0 auto
+  transition: padding .25s ease-in
+  +extra_small
+    padding: 0 20px
+
+.flex
+  flex: 1
+
+.main__button
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149)
+  font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial, sans-serif
+  font-size: .875rem
+  letter-spacing: .25px
+  align-items: center
+  text-align: center
+  background-color: #fff
+  border-radius: 24px
+  color: #3c4043
+  display: flex
+  font-weight: 500
+  height: 48px
+  padding: 0 24px
+  transition: box-shadow .08s linear,min-width .15s cubic-bezier(0.4,0.0,0.2,1)
+  &:hover
+    box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149)
+    background-color: #fafafb
+
+.main__input
+  position: relative
+  width: 100%
+  height: 46px
+  padding: 11px 16px 11px 46px
+  background-color: rgba(0,0,0,0.04)
+  color: rgba(#000000, 1)
+  font-size: 16px
+  border: 1px solid rgba(0,0,0,0)
+  border-radius: 4px
+  transition: background 100ms ease-in,width 100ms ease-out
+  +placeholder
+    color: $gray-text-color
+  &:focus
+    background-color: #ffffff
+    border: 1px solid rgba(#000000, .12)
+    box-shadow: 0 1px 1px rgba(#000000, .24)

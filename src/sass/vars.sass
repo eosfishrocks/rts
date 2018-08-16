@@ -1,0 +1,64 @@
+// vars
+//$accent-color: rgb(255, 5, 62)
+//$main-color: rgb(55, 77, 163)
+$text-color: rgb(00, 00, 00)
+$gray-text-color: rgba(#000000, .54)
+$gray-color: #ccc
+$main-font: 'Roboto', sans-serif
+$transition: .25s ease-in
+// my-mixins
+
+=gradient($color1, $color2, $way)
+  background: $color1
+  background: linear-gradient(to $way, $color1 0%, $color2 100%)
+
+=size($size)
+  width: $size
+  height: $size
+
+=custom_bg($size)
+  background-color: transparent
+  background-size: $size
+  background-position: center center
+  background-repeat: no-repeat
+
+=clipping_text()
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+=square()
+  &:after
+    content: ""
+    display: block
+    padding-top: 100%
+
+=placeholder()
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+=media($size)
+  @media screen and (max-width: $size+px)
+    @content
+
+=large()
+  @media screen and (max-width: 1200px)
+    @content
+
+=medium()
+  @media screen and (max-width: 992px)
+    @content
+
+=small()
+  @media screen and (max-width: 768px)
+    @content
+
+=extra_small()
+  @media screen and (max-width: 576px)
+    @content
