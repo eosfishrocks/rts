@@ -113,5 +113,5 @@ namespace rts {
 
 } /// namespace eosio
 
-EOSIO_ABI( hodlong::Token, (create)(issue)
+EOSIO_ABI( rts::Token, (create)(issue)
 (transfer))

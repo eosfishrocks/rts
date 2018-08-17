@@ -1,6 +1,6 @@
 EOSIOCPP = eosiocpp
 
-build : users token
+build : reputation token
 
 token :
 	$(EOSIOCPP) -o ./contracts/Token.wast ./contracts/Token.cpp

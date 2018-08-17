@@ -60,7 +60,7 @@ namespace rts {
             string result; // Result
             vector <string> proof; // Serialized string of {[account:storageIds]} for storage network
             uint64_t primary_key() const { return election_id; }
-            EOSLIB_SERIALIZE(relection, (election_id)(votes)(name)(network)(aliases)(date)(submitter)(result)(proof));
+            EOSLIB_SERIALIZE(relection, (election_id)(votes)(name)(aliases)(date)(submitter)(result)(proof));
         };
         typedef multi_index<N(relection), relection> repIndex;
 
@@ -85,7 +85,7 @@ namespace rts {
             string role; // Role 'user' otherwise 'arbiter' if elected
             vector <alias> aliases; // List of external aliases
             uint64_t consensus; // total consensus score
-            vector <uint64_t> latest_consesus; // Vector to be used for the last twenty consensus scores
+            vector <uint64_t> latest_consensus; // Vector to be used for the last twenty consensus scores
             uint64_t primary_key() const { return account_name; }
 
             EOSLIB_SERIALIZE(user, (account_name)(username)(reputations)(role)(aliases)(consensus)(latest_consensus));
@@ -98,19 +98,19 @@ namespace rts {
 
         // Links a user to an external username
         // @abi action
-        void link(const account_name account, string &username, string &network);
+        void link(const account_name account, vector<alias> &aliases);
 
         // Submits a reputation report
-        void submit(const account_name account, string &name, string &network, vector<alias> &aliases,
+        void submit(const account_name account, string &name, vector<alias> &aliases,
                 uint64_t &date, uint64_t &submitter, vector<string> &proof);
 
         // Votes for a user in the current election if election is active
         // @abi action
         void elect(const account_name account, uint64_t &account_name);
 
-        // Votes for a reputation report
+        // Votes on an election report
         // @abi action
-        void vote(const account_name account, uint64_t &repid, uint64_t result);
+        void evote(const account_name account, uint64_t &repid, uint64_t result);
 
         // External function available to run as a scheduled task
         // @abi action
@@ -124,5 +124,5 @@ namespace rts {
         void linkusers();
     };
 
-    EOSIO_ABI(Reputation, (adduser)(link)(submit)(elect)(vote)(run));
+    EOSIO_ABI(Reputation, (adduser)(link)(submit)(elect)(evote)(run));
 }
