@@ -47,4 +47,23 @@ namespace rts {
             report.proof = proof;
         });
     }
+
+    void Reputation::elect(const account_name account, uint64_t &value){
+        require_auth(account);
+        // Check for an vote in the current election
+        aVoteIndex avotes(_self, _self);
+        if (iterator != avotes.end()){
+            while(iterator != avotes.end();)
+            {
+                eosio_assert(avote.election_id == config.current_election, "User has already participated in the current election")
+                iterator++
+            }
+        };
+        // If assert didn't break the function, then add new vote.
+        avotes.emplace(account, [&](auto &vote)){
+            vote.election_id=config.current_election;
+            vote.account = account;
+            vote.value = value;
+        }
+    }
 }

@@ -22,6 +22,7 @@ namespace rts {
             uint64_t latest_run; // Last time an election calculation was run
             string token_location; // Token contract location
             string token_symbol; // Token Symbol
+            uint64_t current_election;
             EOSLIB_SERIALIZE(config, (latest_vote)(latest_run)(token_location)(token_symbol));
 
         };
@@ -48,6 +49,17 @@ namespace rts {
         };
         typedef multi_index<N(vote), vote> voteIndex;
 
+        // Table that manages the vote to useraccount mapping for arbiter elections
+        // @abi table vote i64
+        struct avote{
+            uint64_t vote_id;
+            uint64_t election_id;
+            uint64_t account;
+            uint64_t value;
+            uint64_t primary_key() const { return vote_id; }
+        };
+        typedef multi_index<N(avote), avote> aVoteIndex;
+
         // Reputation election table
         // @abi table relection i64
         struct relection {
@@ -68,7 +80,7 @@ namespace rts {
         // @abi table aelection i64
         struct aelection{
             uint64_t election_id;
-            vector <vote> votes;
+            vector <avote> votes;
             uint64_t date;
             uint64_t primary_key() const { return election_id; }
             EOSLIB_SERIALIZE(aelection, (election_id)(votes)(date));
